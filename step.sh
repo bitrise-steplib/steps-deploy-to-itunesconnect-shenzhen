@@ -72,6 +72,6 @@ set -e
 
 write_section_to_formatted_output "# Success"
 echo_string_to_formatted_output "* The app (.ipa) was successfully uploaded to [iTunes Connect](https://itunesconnect.apple.com), you should see it in the *Prerelease* section on the app's iTunes Connect page!"
-echo_string_to_formatted_output "* Don't forget to enable the **TestFlight Beta Testing** switch on iTunes Connect if this is a new version of the app!"
+echo_string_to_formatted_output "* Don't forget to enable the **TestFlight Beta Testing** switch on iTunes Connect (on the *Prerelease* tab of the app) if this is a new version of the app!"
 
 exit 0
