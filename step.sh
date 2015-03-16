@@ -66,7 +66,7 @@ set -e
 
 write_section_to_formatted_output "# Deploy"
 set +e
-ipa distribute:itunesconnect -f "${STEP_SHENZHEN_DEPLOY_IPA_PATH}" -a "${STEP_SHENZHEN_DEPLOY_ITUNESCON_USER}" -p "${STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD}" -i "${STEP_SHENZHEN_DEPLOY_ITUNESCON_APP_ID}" --upload
+ipa distribute:itunesconnect -f "${STEP_SHENZHEN_DEPLOY_IPA_PATH}" -a "${STEP_SHENZHEN_DEPLOY_ITUNESCON_USER}" -p "${STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD}" -i "${STEP_SHENZHEN_DEPLOY_ITUNESCON_APP_ID}" --upload --verbose
 fail_if_cmd_error "Deploy failed!"
 set -e
 
