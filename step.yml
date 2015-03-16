@@ -64,7 +64,7 @@ inputs:
     mapped_to: STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD
     title: "iTunes Connect - Password"
     description: |
-      Password for the specified User Apple ID.
+      Password for the specified User (for the Apple ID / email).
     is_required: true
     is_expand: false
     value: ""
@@ -77,7 +77,7 @@ inputs:
 
       Open the **App's page on iTunes Connect**,
       click on **More**, click on *About this app*,
-      copy the *Apple ID*'s value from here (numeric, like 846814360)
+      copy the *Apple ID*'s value from there (numeric, like 846814360)
     is_required: true
     is_expand: false
     value: ""
