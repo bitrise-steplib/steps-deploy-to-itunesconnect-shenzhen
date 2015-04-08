@@ -19,6 +19,11 @@ function finalcleanup {
     write_section_to_formatted_output "${fail_msg}"
   fi
   write_section_to_formatted_output "*See the logs for more information*"
+
+  write_section_to_formatted_output "**If this is the very first build**
+of the app you try to deploy to iTunes Connect then you might want to upload the first
+build manually to make sure it fulfills the initial iTunes Connect submission
+verification process."
 }
 
 function CLEANUP_ON_ERROR_FN {
@@ -55,23 +60,24 @@ fi
 # ---------------------
 # --- Main
 
-set -e
-set -v
-
 write_section_to_formatted_output "# Setup"
-set +e
 bash "${THIS_SCRIPT_DIR}/_setup.sh"
 fail_if_cmd_error "Failed to setup the required tools!"
-set -e
 
 write_section_to_formatted_output "# Deploy"
-set +e
+
+write_section_to_formatted_output "**Note:** if your password
+contains special characters
+and you experience problems, please
+consider changing your password
+to something with only
+alphanumeric characters."
+
 ipa distribute:itunesconnect -f "${STEP_SHENZHEN_DEPLOY_IPA_PATH}" -a "${STEP_SHENZHEN_DEPLOY_ITUNESCON_USER}" -p "${STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD}" -i "${STEP_SHENZHEN_DEPLOY_ITUNESCON_APP_ID}" --upload --verbose
 fail_if_cmd_error "Deploy failed!"
-set -e
 
 write_section_to_formatted_output "# Success"
 echo_string_to_formatted_output "* The app (.ipa) was successfully uploaded to [iTunes Connect](https://itunesconnect.apple.com), you should see it in the *Prerelease* section on the app's iTunes Connect page!"
-echo_string_to_formatted_output "* Don't forget to enable the **TestFlight Beta Testing** switch on iTunes Connect (on the *Prerelease* tab of the app) if this is a new version of the app!"
+echo_string_to_formatted_output "* **Don't forget to enable** the **TestFlight Beta Testing** switch on iTunes Connect (on the *Prerelease* tab of the app) if this is a new version of the app!"
 
 exit 0
