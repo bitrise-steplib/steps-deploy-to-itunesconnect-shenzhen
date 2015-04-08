@@ -4,6 +4,11 @@ description: |
   fantastic [Shenzhen](https://github.com/nomad/shenzhen)
   Ruby gem.
 
+  **If this is the very first build** of the app
+  you try to deploy to iTunes Connect then you might want to upload the first
+  build manually to make sure it fulfills the initial iTunes Connect submission
+  verification process.
+
   ## Setup guide and notes
 
   * Register an app on iTunes Connect, on the **My Apps** page. Click on the *plus sign* and select the **New iOS App** option. This requires an **admin** account.
@@ -56,6 +61,10 @@ inputs:
     title: "iTunes Connect - User Apple ID (email)"
     description: |
       Login Apple ID (email) for the iTunes Connect site.
+
+      *Make sure that this email is verified,
+      your Apple ID cannot be used until you verify it
+      no Apple's website!*
     is_required: true
     is_expand: false
     value: ""
@@ -64,7 +73,14 @@ inputs:
     mapped_to: STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD
     title: "iTunes Connect - Password"
     description: |
-      Password for the specified User (for the Apple ID / email).
+      Password for the specified User Apple ID.
+
+      **Note:** if your password
+      contains special characters
+      and you experience problems, please
+      consider changing your password
+      to something with only
+      alphanumeric characters.
     is_required: true
     is_expand: false
     value: ""
