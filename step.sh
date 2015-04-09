@@ -73,6 +73,14 @@ consider changing your password
 to something with only
 alphanumeric characters."
 
+write_section_to_formatted_output "**Be advised** that this
+step uses a well maintained, open source tool which
+uses *undocumented and unsupported APIs* (because the current
+iTunes Connect platform does not have a documented and supported API)
+to perform the deployment.
+This means that when the API changes
+**this step might fail until the tool is updated**."
+
 ipa distribute:itunesconnect -f "${STEP_SHENZHEN_DEPLOY_IPA_PATH}" -a "${STEP_SHENZHEN_DEPLOY_ITUNESCON_USER}" -p "${STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD}" -i "${STEP_SHENZHEN_DEPLOY_ITUNESCON_APP_ID}" --upload --verbose
 fail_if_cmd_error "Deploy failed!"
 
