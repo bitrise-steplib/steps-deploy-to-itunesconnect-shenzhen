@@ -36,23 +36,23 @@ set_error_cleanup_function CLEANUP_ON_ERROR_FN
 # ---------------------
 # --- Required Inputs
 
-if [ -z "${STEP_SHENZHEN_DEPLOY_IPA_PATH}" ] ; then
-	finalcleanup "Input: \`STEP_SHENZHEN_DEPLOY_IPA_PATH\` not provided!"
+if [ -z "${ipa_path}" ] ; then
+	finalcleanup "Input: \`ipa_path\` not provided!"
 	exit 1
 fi
 
-if [ -z "${STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD}" ] ; then
-	finalcleanup "Input: \`STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD\` not provided!"
+if [ -z "${password}" ] ; then
+	finalcleanup "Input: \`password\` not provided!"
 	exit 1
 fi
 
-if [ -z "${STEP_SHENZHEN_DEPLOY_ITUNESCON_USER}" ] ; then
-	finalcleanup "Input: \`STEP_SHENZHEN_DEPLOY_ITUNESCON_USER\` not provided!"
+if [ -z "${itunescon_user}" ] ; then
+	finalcleanup "Input: \`itunescon_user\` not provided!"
 	exit 1
 fi
 
-if [ -z "${STEP_SHENZHEN_DEPLOY_ITUNESCON_APP_ID}" ] ; then
-	finalcleanup "Input: \`STEP_SHENZHEN_DEPLOY_ITUNESCON_APP_ID\` not provided!"
+if [ -z "${app_id}" ] ; then
+	finalcleanup "Input: \`app_id\` not provided!"
 	exit 1
 fi
 
@@ -81,7 +81,7 @@ to perform the deployment.
 This means that when the API changes
 **this step might fail until the tool is updated**."
 
-ipa distribute:itunesconnect -f "${STEP_SHENZHEN_DEPLOY_IPA_PATH}" -a "${STEP_SHENZHEN_DEPLOY_ITUNESCON_USER}" -p "${STEP_SHENZHEN_DEPLOY_ITUNESCON_PASSWORD}" -i "${STEP_SHENZHEN_DEPLOY_ITUNESCON_APP_ID}" --upload --verbose
+ipa distribute:itunesconnect -f "${ipa_path}" -a "${itunescon_user}" -p "${password}" -i "${app_id}" --upload --verbose
 fail_if_cmd_error "Deploy failed!"
 
 write_section_to_formatted_output "# Success"
