@@ -9,6 +9,8 @@ app:
   - itunescon_user:
   - password:
   - app_id:
+  # for step share:
+  - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
 
 workflows:
   test:
